@@ -9,6 +9,33 @@ model = genai.GenerativeModel("models/gemini-1.5-flash")
 
 def main():
     st.set_page_config(page_title="SQL QueryPilot", page_icon=":robot_face:")
+    
+    st.markdown(
+        """
+        <style>
+        .stApp {
+            background-image: url("https://raw.githubusercontent.com/Bhanudahiyaa/SQL-QueryPilot/main/artistic-blurry-colorful-wallpaper-background.jpg"); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+           
+        }
+        .stApp::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(30, 30, 30, 0.6);
+            z-index: -1;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+    
     st.markdown(
         """
         <div style="text-align: center;">
@@ -42,8 +69,7 @@ I just want a SQL Query.
                 st.markdown("---")
                 st.subheader("Create a SQL query snippet using the below text:")
                 st.code(prompt, language="markdown")
-                st.markdown("**I just want a SQL Query.**")
-                st.code(sql_query, language="sql")
+               
 
                 expected_output = """
 What would be the expected response of this SQL query snippet:
