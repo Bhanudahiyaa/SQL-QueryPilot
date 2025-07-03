@@ -1,10 +1,10 @@
 import streamlit as st
 import google.generativeai as genai
 
-# Configure your API key
-genai.configure(api_key="AIzaSyA70viEjmSoRe2XWoAEjsiaI4EbZ003pI0")  # ← Replace with your actual API key
 
-# Use correct model name (check via list_models)
+genai.configure(api_key="AIzaSyA70viEjmSoRe2XWoAEjsiaI4EbZ003pI0")  
+
+
 model = genai.GenerativeModel("models/gemini-1.5-flash")
 
 def main():
@@ -38,7 +38,7 @@ I just want a SQL Query.
                 sql_query = response.text.strip()
                 sql_query = sql_query.replace("```sql", "").replace("```", "").strip()
 
-                # Match the screenshot layout
+                
                 st.markdown("---")
                 st.subheader("Create a SQL query snippet using the below text:")
                 st.code(prompt, language="markdown")
@@ -55,7 +55,7 @@ Provide sample tabular response with no explanation:
                 expected_output_formatted = expected_output.format(sql_query=sql_query)
                 eoutput = model.generate_content(expected_output_formatted)
                 eoutput = eoutput.text.strip()
-                # Removed st.write(eoutput)
+                
 
                 explanation = """
 Explain the SQL query snippet:
@@ -67,7 +67,7 @@ provide a detailed explanation of the query, including its purpose, how it works
                 explanation_formatted = explanation.format(sql_query=sql_query)
                 explanation = model.generate_content(explanation_formatted)
                 explanation = explanation.text.strip()
-                # Removed st.write(explanation)
+                
 
                 with st.container():
                     st.success("✅ SQL Query generated successfully!")
