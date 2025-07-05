@@ -1,4 +1,4 @@
-# 🧠 SQL Query Pilot
+# 🧠 SQL-Whisperer
 
 ---
 
