@@ -1,4 +1,4 @@
-# 🧠 SQL-Whisperer
+# 🧠 AI SQL-Whisperer
 
 ---
 
